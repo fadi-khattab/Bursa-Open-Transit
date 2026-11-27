@@ -221,3 +221,10 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# BOT: private records and generated feeds
+/private/
+/data/raw/
+/data/authorized/
+/artifacts/
+*.gtfs.zip
