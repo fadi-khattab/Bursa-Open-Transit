@@ -228,3 +228,12 @@ __marimo__/
 /data/authorized/
 /artifacts/
 *.gtfs.zip
+
+# Local evidence journal artifacts (never publish runtime data)
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm
+*.sqlite-journal
+*.sqlite3
+*.sqlite3-wal
+*.sqlite3-shm
