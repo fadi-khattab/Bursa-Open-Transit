@@ -12,6 +12,8 @@ class EntityKind(Enum):
     SERVICE="service"
     SHAPE="shape"
     STATION="station"
+    GEOMETRY="geometry"
+    TRANSFER="transfer"
 
 @dataclass(frozen=True, slots=True)
 class SourceKey:
