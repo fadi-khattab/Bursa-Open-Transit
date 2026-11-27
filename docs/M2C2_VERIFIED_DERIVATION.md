@@ -1,0 +1,11 @@
+# BOT-M2C.2 — Verified derivation graph
+
+Baseline a2489bd. Offline synthetic stop-coordinate slice only.
+
+Roots are reconstructed by rerunning M2C.1 on pinned source bytes, scope, typed identity ledger and spatial model. No external Node or FieldEvidence object is accepted as a root. Only fields matching the model enter the graph; observed model-disagreeing aliases conservatively exclude that canonical field, not unrelated fields. Audit details remain available; full conflict and alternative-proof policy is M2C.3. Missing values are absence, not original claims. Incomplete unrelated fields do not block a local calculation.
+
+Claims use a closed, versioned rule enum, ordered typed field signatures, immutable JSON scalar results, exact recomputation, and earlier-parent-only replay (acyclic). Roots are content-bound IDs over source key, locator, version, digest and canonical identity. Claim IDs are unique within a graph. Graph construction/replacement replays from pinned inputs; append returns a new graph. Output nodes are immutable under ordinary Python use, not a hostile-process security boundary.
+
+Rules: STOP_DISTANCE_M_V1 computes spherical great-circle distance from two stops' original latitude/longitude. It is a mathematical model, not path length. WALK_SECONDS_ESTIMATE_V1 computes ceil(distance / 1.2 m/s) as an illustrative estimate only; no claim of accessibility, transfer feasibility or actual walking duration. SECONDS_TO_MINUTES_V1 divides that estimate by 60 and inherits estimate status. Effective estimate = rule is estimating OR any parent depends on estimate. Origin and inherited estimate are separate; no caller-supplied label. Exact serialized recomputation is a same-runtime policy; cross-platform floating-point reproducibility is unproven. No arbitrary expression or rule registration.
+
+The graph proves computations relative to pinned selected inputs and fixed code, not real-world accuracy or institutional source authenticity. Scope authority, publication, and real-data access remain disabled. No multi-source version arbitration, source authentication, general rule engine, persistence, full-network coverage, actual transfer creation or GTFS export. M2C.3 must handle alternative proofs and conflicting roots independently of model choice; do not treat this slice as a release gate.
