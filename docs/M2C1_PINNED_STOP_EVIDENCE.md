@@ -1,0 +1,10 @@
+# BOT-M2C.1 — Pinned stop evidence and identity slice
+
+Baseline: 6e530cf. This is a partial M2C integration, not a GTFS readiness gate.
+The standalone preview passed 21/21 in the separate execution environment, but adversarial cases showed unchecked source locators, mutable graph state, unchecked rules, and a blocked derivation poisoning a distinct clean alternative. Do not import that prototype unchanged.
+
+The implemented slice accepts immutable UTF-8 JSON bytes and caller-provided expected SHA-256 pins. It rejects byte mismatch, duplicate JSON keys, metadata mismatch and nonfinite constants. Source data and scope have separate namespaces and digests. The scope specifies the selected data version and an explicit inventory mapping external stop IDs to canonical stop IDs. Every record is checked through the existing typed IdentityLedger and SpatialNetwork, and each original stop field has a source digest, version, exact locator and JSON value. Unknown, missing, extra and mismatched records block relative completeness. The report is immutable under its ordinary API. No automatic identity matches or timing inference.
+
+Limits: a caller can create consistent fictional data, scope, pins and ledger. Separate files and namespaces do not establish independent institutional witnesses. Ledger decision_ref is not authenticated. Silent source ID reuse remains undetectable without external evidence. Only stop name/latitude/longitude are covered; no evidence DAG or rule execution in this slice; no persistence, freshness, full-network completeness, authorization or GTFS readiness. Exact coordinate equality is an explicit synthetic policy. Ordinary Python immutability is not protection against arbitrary process-level mutation. No real data access or publication. All authority and publication flags stay false.
+
+Next: verified derivation rules and conflict isolation; version selection and decision witnesses; complete typed field inventory across route/pattern/trip/visit/calendar/shape/transfer; durable evidence; externally authorized coverage roots.
