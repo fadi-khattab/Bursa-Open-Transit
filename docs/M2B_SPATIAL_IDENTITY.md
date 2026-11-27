@@ -1,0 +1,11 @@
+# BOT-M2B — Spatial and identity model
+Offline synthetic extension to M2A. No real data or publication.
+
+## Geography and topology
+Shapes are ordered WGS84 latitude/longitude vertices; distances are spherical great-circle approximations (radius 6371008.8 m). Explicit vertex anchors associate each pattern occurrence, not each distinct stop, with a shape. Anchors may repeat but never decrease; repeated stops on a loop may have different cumulative distances. The default 50 m tolerance is a synthetic test policy only. Missing geometry remains unknown. No snapping, interpolation, map matching or surveyed distance claim. Station areas group boardable stops without implying walkability. Transfers are explicit directed edges with minimum seconds; no implicit reverse or proximity-based transfer. Ride edges identify pattern and occurrence index; this is not a journey planner.
+
+## Identity
+A source key is (synthetic source namespace, entity kind, external ID). The immutable event ledger accepts explicit bind or retire decisions with synthetic reference IDs. Reordering a snapshot or absence from it never changes identity. Different source keys may map to one canonical ID only via explicit bind decisions. Renames and coordinate changes do not automatically change identity. Rebinding, retired identity resurrection, and source-key reuse are rejected; legitimate reuse/split/merge requires a future explicit reconciliation policy. Canonical IDs are typed. A decision reference is not independent evidence or authorization. Ledger replay validates its own history; storage, authentication, concurrent updates, audit signatures and reconciliation against Network snapshots remain unimplemented. It does not prove source IDs are stable or prevent an operator constructing a conflicting independent ledger.
+
+## Acceptance and limits
+Tests cover geometry, loops, anchors, distance, station membership, directed transfers, typed identity, aliases, retirement and replay. No changes to M2A entity semantics. No new dependencies. The CLI remains M0.1 and the production gate remains disabled. M2C must establish provenance, persistent versioned evidence and coverage before real ingestion; GTFS output is later. No agency data accessed.
